@@ -20,5 +20,4 @@
 
     $: setAuthed(false);
 
-
 </script>

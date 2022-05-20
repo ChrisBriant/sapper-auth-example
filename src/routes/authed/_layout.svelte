@@ -16,7 +16,6 @@
 	});
 
 	const setAuthed = (val) => {
-		console.log('SettingAuthed');
 		checkingAuth = true;
 		authed = val;
 		checkingAuth = false;
@@ -46,13 +45,7 @@
 	{:else}
 		<!-- <SignIn setAuthed={setAuthed} /> -->
         <main class="content">
-            <h1>You are not authed</h1>
             <SignIn setAuthed={setAuthed} /> 
         </main>
 	{/if}
 {/if}
-
-
-<!-- <main class="content">
-	<slot></slot>
-</main> -->

@@ -4,8 +4,6 @@
 </script>
 
 <script>
-	//import SignIn from '../../components/SignIn.svelte';
-	//import LoadingSpinner from '../../components/UI/LoadingSpinner.svelte';
 	import Nav from '../components/Nav.svelte';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';

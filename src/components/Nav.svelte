@@ -1,8 +1,6 @@
 <script>
 	export let segment;
 	export let authed;
-
-	console.log('NAV HAPPENING');
 </script>
 
 <style>
@@ -59,12 +57,13 @@
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
+		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='authed/blog'>blog</a></li>
 		<li><a class='{segment === "signout" ? "selected" : ""}' href='signout'>signout</a></li>
 	</ul>
 	{:else}
 		<ul>
 			<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
+			<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
 			<li><a class='{segment === "signin" ? "selected" : ""}' href='signin'>signin</a></li>
 			<li><a class='{segment === "register" ? "selected" : ""}' href='register'>register</a></li>
 		</ul>

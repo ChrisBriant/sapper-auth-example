@@ -7,15 +7,29 @@
 	//import SignIn from '../../components/SignIn.svelte';
 	//import LoadingSpinner from '../../components/UI/LoadingSpinner.svelte';
 	import Nav from '../components/Nav.svelte';
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	export let segment;
 	
 	let authed = true;
 
+	export const setAuthed = (val) => {
+		authed = val;
+	}
+
 	onMount(async () => {
 		authed = await checkAuthed();
 	});
 
+
+	const setAuthed$ = writable(setAuthed)
+
+	// this updates the store's value when `segment` changes
+	// syntactic sugar for: segment$.set(segment)
+	$: $setAuthed$ = setAuthed;
+
+	setContext('setAuthed', setAuthed$);
 </script>
 
 <style>

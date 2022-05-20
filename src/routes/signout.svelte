@@ -3,15 +3,22 @@
 </svelte:head>
 
 <script>
-    import { createEventDispatcher,onMount, onDestroy } from "svelte";
+    import { onMount } from "svelte";
     import { goto } from '@sapper/app';
+    import { getContext } from 'svelte';
 
     onMount(() => {
         if(localStorage.getItem('access_token')) {
-            console.log('HAS ACCESS TOKEN');
             localStorage.removeItem('access_token');
         }
         goto('/');
     });
+
+    let setAuthed$ = getContext('setAuthed')
+
+    $: setAuthed = $setAuthed$
+
+    $: setAuthed(false);
+
 
 </script>

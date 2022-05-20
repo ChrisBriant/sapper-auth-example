@@ -25,9 +25,7 @@
 
 <script>
     import Button from './UI/Button.svelte';
-    //import { onMount } from "svelte";
     import {authenticate} from '../auth/auth';
-    import { goto } from '@sapper/app';
 
     export let setAuthed;
 

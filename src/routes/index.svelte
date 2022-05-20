@@ -1,33 +1,3 @@
-<script context="module">
-	import { createEventDispatcher,onMount, onDestroy } from "svelte";
-	//let authed = false;
-	import {checkAuthed} from '../auth/auth';
-	
-	
-</script>
-
-<script>
-	import SignIn from '../components/SignIn.svelte';
-	import LoadingSpinner from '../components/UI/LoadingSpinner.svelte';
-	
-	let checkingAuth = true;
-	let authed;
-
-	onMount(async () => {
-		authed = await checkAuthed();
-		//const accessToken = await localStorage.getItem('access_token');
-		checkingAuth = false;
-	});
-
-	const setAuthed = (val) => {
-		console.log('SettingAuthed');
-		checkingAuth = true;
-		authed = val;
-		checkingAuth = false;
-	}
-
-</script>
-
 <style>
 	h1, figure, p {
 		text-align: center;
@@ -66,19 +36,13 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-{#if checkingAuth}
-	<LoadingSpinner />
-{:else}
-	{#if authed}
-		<h1>Great success!</h1>
+<h1>Great success!</h1>
 
-		<figure>
-			<img alt='Borat' src='great-success.png'>
-			<figcaption>HIGH FIVE!</figcaption>
-		</figure>
+<figure>
+	<img alt='Borat' src='great-success.png'>
+	<figcaption>HIGH FIVE!</figcaption>
+</figure>
 
-		<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
-	{:else}
-		<SignIn setAuthed={setAuthed} />
-	{/if}
-{/if}
+<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
+

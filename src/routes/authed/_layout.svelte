@@ -1,6 +1,5 @@
 <script context="module">
-	import { createEventDispatcher,onMount, onDestroy } from "svelte";
-	//let authed = false;
+	import { onMount } from "svelte";
 	import {checkAuthed} from '../../auth/auth';
 </script>
 
@@ -13,7 +12,6 @@
 
 	onMount(async () => {
 		authed = await checkAuthed();
-		//const accessToken = await localStorage.getItem('access_token');
 		checkingAuth = false;
 	});
 
@@ -23,7 +21,6 @@
 		authed = val;
 		checkingAuth = false;
 	}
-
 </script>
 
 
